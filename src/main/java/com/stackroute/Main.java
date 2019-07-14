@@ -10,14 +10,18 @@ import java.lang.reflect.Modifier;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        Movie movie = applicationContext.getBean("movie",Movie.class);
-        movie.displayInformation();
+        Movie firstMovie = applicationContext.getBean("Movie A, Movie B", Movie.class);
+        firstMovie.displayInformation();
 
-        BeanFactory beanFactory = new AnnotationConfigApplicationContext(AppConfig.class);
-        movie = beanFactory.getBean("movie", Movie.class);
-        movie.displayInformation();
+        Movie secondMovie = applicationContext.getBean("Movie A, Movie B", Movie.class);
+        secondMovie.displayInformation();
+
+        if (firstMovie == secondMovie) {
+            System.out.println("Equal");
+        } else {
+            System.out.println("Not Equal");
+        }
     }
 }
