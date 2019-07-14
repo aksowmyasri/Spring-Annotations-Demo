@@ -1,4 +1,4 @@
 
-   Added BeanLifeCycleDemoBean class in com.stackroute.demo that implements InitializingBean and DisposableBean.
+   Implemented ApplicationContextAware, BeanFactoryAware and BeanNameAware in the Movie class and printed
 
-   Added two methods customInit() and customDestroy() to the BeanLifeCycleDemoBean class and printed custom messages.
+   their results.

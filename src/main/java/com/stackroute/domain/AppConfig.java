@@ -20,11 +20,6 @@ public class AppConfig
         return new Movie(new Actor());
     }
 
-    @Bean(value = {"beanLifeCycle"}, initMethod = "customInit", destroyMethod = "customDestroy")
-    public BeanLifeCycleDemoBean beanLifeCycleDemo() {
-        return new BeanLifeCycleDemoBean();
-    }
-
 
     @Bean
     public Actor actor()

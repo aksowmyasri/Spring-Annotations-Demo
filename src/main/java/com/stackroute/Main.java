@@ -12,13 +12,12 @@ import java.lang.reflect.Modifier;
 public class Main
 {
     public static void main(String[] args) {
-        AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         Movie firstMovie = applicationContext.getBean("firstMovie", Movie.class);
         firstMovie.displayInformation();
 
         Movie secondMovie = applicationContext.getBean("secondMovie", Movie.class);
         secondMovie.displayInformation();
 
-        applicationContext.close();
     }
 }
