@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 import java.util.Arrays;
 import java.util.List;
 
-public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNameAware
+public class Movie
 {
     @Autowired
     private Actor actor;
@@ -43,22 +43,5 @@ public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNam
     public void initMethod() {
         actor = new Actor("ABC", "Female", 12);
     }
-
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("Bean Factory Called");
-    }
-
-    @Override
-    public void setBeanName(String s) {
-        System.out.println("Bean Name : " + s);
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("Application Context Set");
-    }
-
-
 
 }
