@@ -25,10 +25,7 @@ public class AppConfig
         return new BeanLifeCycleDemoBean();
     }
 
-    @Bean(value = {"beanPostProcessor"})
-    public BeanPostProcessorDemoBean beanPostProcessorDemoBean() {
-        return new BeanPostProcessorDemoBean();
-    }
+
     @Bean
     public Actor actor()
     {

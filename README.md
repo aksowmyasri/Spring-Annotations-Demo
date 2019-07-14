@@ -1,4 +1,4 @@
 
-    Added BeanPostProcessorDemoBean class in com.stackroute.demo that implements BeanPostProcessor.
+   Added BeanLifeCycleDemoBean class in com.stackroute.demo that implements InitializingBean and DisposableBean.
 
-    Overrided the methods and printed messages.
+   Added two methods customInit() and customDestroy() to the BeanLifeCycleDemoBean class and printed custom messages.
