@@ -10,11 +10,24 @@ import java.util.ArrayList;
 @Configuration
 public class AppConfig
 {
-    @Bean(value="Movie A, Movie B", initMethod = "initMethod")
-    @Scope(scopeName = "prototype")
+    @Bean(value="firstMovie", initMethod = "initMethod")
     public Movie movie()
     {
-        return new Movie(new ArrayList<Actor>());
+        return new Movie();
+    }
+    @Bean(value = {"secondMovie"}, initMethod = "initMethod")
+    public Movie getMovie() {
+        return new Movie(new Actor());
+    }
+
+    @Bean(value = {"beanLifeCycle"}, initMethod = "customInit", destroyMethod = "customDestroy")
+    public BeanLifeCycleDemoBean beanLifeCycleDemo() {
+        return new BeanLifeCycleDemoBean();
+    }
+
+    @Bean(value = {"beanPostProcessor"})
+    public BeanPostProcessorDemoBean beanPostProcessorDemoBean() {
+        return new BeanPostProcessorDemoBean();
     }
     @Bean
     public Actor actor()

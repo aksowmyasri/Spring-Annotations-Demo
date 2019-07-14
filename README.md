@@ -1,6 +1,4 @@
 
-    Created three beans of type actor in the bean definition file (beans.xml).
+    Added BeanPostProcessorDemoBean class in com.stackroute.demo that implements BeanPostProcessor.
 
-    Used constructor-based injection in the bean definition file to inject property values in each of the three beans via name, index and type respectively.
-
-    Printed Author information using Movie Bean.
+    Overrided the methods and printed messages.

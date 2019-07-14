@@ -1,35 +1,64 @@
 package com.stackroute.domain;
 
 import com.stackroute.domain.Actor;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Movie
+public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNameAware
 {
     @Autowired
-    private List<Actor> actor;
+    private Actor actor;
 
-    public Movie(List<Actor> actor) {
-        this.actor = actor;
+    public Movie() {
+
     }
 
-    public List<Actor> getActor() {
+    @Autowired
+    public Movie(Actor actor) {
+        this.actor = actor;
+        System.out.println("Constructor Called");
+    }
+
+    public Actor getActor() {
         return actor;
     }
 
-    public void setActor(List<Actor> actor) {
+    public void setActor(Actor actor) {
         this.actor = actor;
+        System.out.println("Setter Method Called");
     }
 
-    public void displayInformation()
-    {
-        for(Actor actor: actor){
-            actor.display();
-        }
+    public void displayInformation() {
+        actor.display();
     }
-    public void initMethod(){
-        actor= Arrays.asList(new Actor("ABC","Female",21),new Actor("Pallavi","Female",17),new Actor("Xyz","male",22));
+
+    public void initMethod() {
+        actor = new Actor("ABC", "Female", 12);
     }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("Bean Factory Called");
+    }
+
+    @Override
+    public void setBeanName(String s) {
+        System.out.println("Bean Name : " + s);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("Application Context Set");
+    }
+
+
+
 }
